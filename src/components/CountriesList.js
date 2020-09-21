@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CountriesList = (props) => {
     return (
@@ -6,7 +7,7 @@ const CountriesList = (props) => {
             <div className='list-group'>
                 {props['countries'].map(country => {
                     return(
-                        <a className="list-group-item list-group-item-action" href={`/${country.cca3}`} key={country.name.common}>{country.flag} {country.name.common}</a>
+                        <Link className="list-group-item list-group-item-action" to={`/${country.cca3}`} key={country.name.common}>{country.flag} {country.name.common}</Link>
                     );
                 })}
             </div>

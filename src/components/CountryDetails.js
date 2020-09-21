@@ -1,5 +1,6 @@
 import React from 'react';
 import countries from '../countries.json';
+import { Link } from 'react-router-dom';
 
 const CountryDetails = (props) => {
     let country = countries.find(country => country.cca3 === props.match.params.id);
@@ -21,7 +22,7 @@ const CountryDetails = (props) => {
                         <td><ul>{country.borders[0] ? country.borders.map(cca3 => {
                             let borderCountry = countries.find(country => country.cca3 === cca3);
                             return (
-                                <li key={borderCountry.cca3}><a href={`/${borderCountry.cca3}`}>{borderCountry.name.common}</a></li>
+                                <li key={borderCountry.cca3}><Link to={`/${borderCountry.cca3}`}>{borderCountry.name.common}</Link></li>
                             );
                         }): 'None'}</ul></td>
                     </tr>
